@@ -1,0 +1,98 @@
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\projects\cse210-projects\sandbox\Sandbox\bin\Debug\net7.0\Sandbox.exe
+C:\projects\cse210-projects\sandbox\Sandbox\bin\Debug\net7.0\Sandbox.deps.json
+C:\projects\cse210-projects\sandbox\Sandbox\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\projects\cse210-projects\sandbox\Sandbox\bin\Debug\net7.0\Sandbox.dll
+C:\projects\cse210-projects\sandbox\Sandbox\bin\Debug\net7.0\Sandbox.pdb
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.dll
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\refint\Sandbox.dll
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.pdb
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\projects\cse210-projects\sandbox\Sandbox\obj\Debug\net7.0\ref\Sandbox.dll
+C:\projects\team_journal\bin\Debug\net7.0\Sandbox.exe
+C:\projects\team_journal\bin\Debug\net7.0\Sandbox.deps.json
+C:\projects\team_journal\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\projects\team_journal\bin\Debug\net7.0\Sandbox.dll
+C:\projects\team_journal\bin\Debug\net7.0\Sandbox.pdb
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.dll
+C:\projects\team_journal\obj\Debug\net7.0\refint\Sandbox.dll
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.pdb
+C:\projects\team_journal\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\projects\team_journal\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\bin\Debug\net7.0\Sandbox.exe
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\bin\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\bin\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\team_journal\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\bin\Debug\net7.0\Sandbox.exe
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\bin\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\bin\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\scripture_memorization\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\bin\Debug\net7.0\Sandbox.exe
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\bin\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\bin\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\scripture_memorization\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.exe
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.pdb
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\ref\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.exe
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\ref\Sandbox.dll
