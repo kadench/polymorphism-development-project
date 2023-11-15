@@ -119,6 +119,19 @@ class Program {
                 foreach (string goal in SpGoals)
                 {
                         Console.WriteLine(goal);
+                        string[] spGoalTypeFinder = goal.Split(":");
+                        string spNewGoalType = spGoalTypeFinder[0];
+                        string[] goalDescriptors = spGoalTypeFinder[1].Split(",");
+                        if (spNewGoalType == "CheckList"){
+                            Checklist spNewChecklist = new Checklist(spGoalTypeFinder[0], goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), int.Parse(goalDescriptors[3]), int.Parse(goalDescriptors[4]), bool.Parse(goalDescriptors[5]));
+                            //                           ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {_spTimesToDo}, {_spTimesDone}, {base._spPointsEarned}, {_spIsComplete}")
+                        }else if (spNewGoalType == "Simple"){
+                            Simple spNewSimple = new Simple(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), bool.Parse(goalDescriptors[3]));
+                            //                          ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}")
+                        }else{
+                            Eternal spNewEternal = new Eternal(string goalType, string description, int diffiucltyLevel, int timesDone);
+                            //
+                        }
                 }
                 }
                 else
