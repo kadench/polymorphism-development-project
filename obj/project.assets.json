@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\polymorphism-development-project\\Sandbox.csproj",
+      "projectUniqueName": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\polymorphism-development-project\\Sandbox.csproj",
       "projectName": "Sandbox",
-      "projectPath": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\polymorphism-development-project\\Sandbox.csproj",
+      "projectPath": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\polymorphism-development-project\\Sandbox.csproj",
       "packagesPath": "C:\\Users\\garfu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\garfu\\Documents\\School\\Semester 4\\Programming With Classes\\meditation_activity\\polymorphism-development-project\\obj\\",
+      "outputPath": "C:\\Users\\garfu\\OneDrive\\Documents\\GitHub\\polymorphism-development-project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\garfu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

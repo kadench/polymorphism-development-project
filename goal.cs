@@ -1,6 +1,7 @@
 class Goal {
     protected string _spGoalType;
     protected int _spPointsEarned;
+    protected int _spPointsValue;
     private List<int> _spDifficultyList = new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     protected int _spDifficultyLevel;
     private List<string> spAcceptedAnswers = new List<string>{"eternal goal", "eternal", "checklist goal", "checklist", "simple goal", "simple", "1", "2", "3"};
@@ -22,8 +23,18 @@ class Goal {
     }
 
     // Sets the amount of points based on the goal and difficulty level 
-    private void SpSetPointValue(string _spGoalType, int _spDifficultyLevel) {
-        
+    private void SpSetPointValue(int _spDifficultyLevel) {
+        if (_spGoalType = "simple") {
+            _spPointsValue = 50;
+        }
+        else if (_spGoalType = "checklist") {
+
+            _spPointsValue = 30;
+        }
+        else if (_spGoalType = "eternal") {
+            _spPointsValue = 10;
+
+        }
     }
 }
 
