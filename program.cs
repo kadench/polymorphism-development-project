@@ -62,7 +62,7 @@ class Program {
                 return SpChoice;
             }
         }
-        static void SaveGoals(List<string> newGoals) 
+        public static void SaveGoals(List<string> newGoals) 
         {
                 // Get the user's desktop path
                 string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -75,6 +75,10 @@ class Program {
                 {
                 // Read existing goals from the file
                 List<string> SpExistingGoals = File.ReadAllLines(SpFilePath).ToList();
+
+                // get method of goalLIst
+                var spGoalList = new GoalSheet(newGoals);
+                spGoalList.GetGoalList();
 
                 // Add new goals without duplicates
                 foreach (string goal in newGoals)
@@ -96,7 +100,7 @@ class Program {
 
                 Console.WriteLine("Goals saved to file.");
         }
-        static void LoadGoals()
+        static void LoadGoals(fileName)
         {
                 // Get the user's desktop path
                 string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -140,7 +144,7 @@ class Program {
             } else if (SpChoice == 4)
             {
                 //Load Goals logic
-                LoadGoals();
+                LoadGoals(fileName);
             } else if (SpChoice == 5)
             {
                 //record new event logic
