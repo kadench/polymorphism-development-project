@@ -13,7 +13,7 @@ class Goal {
     protected int _spGoalValue;
     
     // The point value that is returned to the user for completing a goal.
-    protected int _spUserPointsEarned;
+    protected int _spPointsEarned;
 
     // A List<int> with the accepted difficulty levels for each goal.
     protected List<int> _spDifficultyList = new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -24,7 +24,7 @@ class Goal {
 
     // Building the constuctor
     // Input: User's goal type
-    public Goal(string spGoalChoice) {
+    public Goal(string spGoalChoice, string description, int difficultyLevel) {
         
         // Checks if the user's input is in the accepted goal list.
         if (spAcceptedAnswers.Contains(spGoalChoice)) {
@@ -37,6 +37,9 @@ class Goal {
             Console.WriteLine("Invalid goal name was given. Please try again.");
         }
         SpSetGoalPointValue();
+        _spDescription = description;
+        SpSetDifficultyLvl(difficultyLevel);
+
     }
     // Sets the difficulty level of the complete goal from the user's chosen difficulty level.
     protected void SpSetDifficultyLvl(int spUserSetDifficulty) {
@@ -63,10 +66,10 @@ class Goal {
 
     // Sets the amount of points received when a goal is done. (Will be changed by checklist, so it's a virtual method.)
     protected virtual void SpSetGivenPoints() {
-        _spUserPointsEarned = _spDifficultyLevel * _spGoalValue; 
+        _spPointsEarned = _spDifficultyLevel * _spGoalValue; 
     }
     // Not sure what this one does??
-    protected virtual void SpRecordEvent() {
+    public virtual void SpRecordEvent() {
 
     }
 }

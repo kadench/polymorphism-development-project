@@ -14,7 +14,7 @@ class Eternal : Goal{
         SpCountTimesDone();
     }
 
-    public string ToString(){
+    public override string ToString(){
         return ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spTimesDone}");
     }
 

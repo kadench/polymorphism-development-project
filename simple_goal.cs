@@ -7,12 +7,12 @@ class Simple : Goal {
         _spIsComplete = isComplete;
     }
 
-    public override void RecordEvent(){
+    public override void SpRecordEvent(){
         _spIsComplete = true;
-        base._spPointsEarned += base._spPointsValue;
+        base._spPointsEarned += base._spGoalValue;
     }
 
-    public void ToString(){
+    public override string ToString(){
          return ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}");
     }
 

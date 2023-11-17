@@ -27,13 +27,13 @@ class Checklist : Goal {
     }
 
     private void SpDetermineBonusPoints(){
-        _spBonusPointValue = 2 * base._spPointsValue;
+        _spBonusPointValue = 2 * base._spGoalValue;
 
     }
 
     public override void SpRecordEvent(){
         SpCountTimesDone();
-        base._spPointsEarned += base._spPointsValue;
+        base._spPointsEarned += base._spGoalValue;
 
     }
 
