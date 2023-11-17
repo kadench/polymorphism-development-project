@@ -1,9 +1,9 @@
 class GoalSheet 
 {
-    private List<string> _SpGoalsList;
+    private List<Goal> _SpGoalsList;
     private int _SpScore;
 
-    public GoalSheet (List<string> SpGoalsList)
+    public GoalSheet (List<Goal> SpGoalsList)
     {
         _SpGoalsList = SpGoalsList;
     }
@@ -12,14 +12,18 @@ class GoalSheet
         _SpScore = SpScore;
     }
 
-    public void AddToList(string SpNewGoal) 
+    public void AddToList(Goal SpNewGoal) 
     {
         //get list and append
         _SpGoalsList.Add(SpNewGoal);
     }
-    public List<string> GetGoalList()
+    public List<Goal> GetGoalList()
     {
         return _SpGoalsList;
+    }
+
+    public int GetScore(){
+        return _SpScore;
     }
 }
 // take this list from here and for each of the goals in this list add them to the file if they dont exist

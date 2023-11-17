@@ -5,31 +5,31 @@ using System.Xml.Schema;
 class Program {
 
         static void StartingMessage() {
-                Console.WriteLine("Welcome to your Goal Tracker!");
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("This program allows you to create goals and track your progress on them.");
-                Console.WriteLine("There are three types of goals available:");
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("Simple Goals, which are one and done goals.");
-                Console.WriteLine("Checklist Goals, which allow you to set a number of times you would like to complete the goal.");
-                Console.WriteLine("Eternal Goals, which are goals you will work on forever, we will count how many times you do it.");
-                Console.WriteLine("----------------------------------");
+            Console.WriteLine("Welcome to your Goal Tracker!");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("This program allows you to create goals and track your progress on them.");
+            Console.WriteLine("There are three types of goals available:");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Simple Goals, which are one and done goals.");
+            Console.WriteLine("Checklist Goals, which allow you to set a number of times you would like to complete the goal.");
+            Console.WriteLine("Eternal Goals, which are goals you will work on forever, we will count how many times you do it.");
+            Console.WriteLine("----------------------------------");
         }
         static void EndingMessage() {
-                Console.WriteLine("We hope you enjoyed using the Goal tracker, keep up the good work! See you soon!");
+            Console.WriteLine("We hope you enjoyed using the Goal tracker, keep up the good work! See you soon!");
         }
         static void Menu() {
   
-                Console.WriteLine();
-                Console.WriteLine("             Actions:            ");
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("Enter 1 to Create a New Goal");
-                Console.WriteLine("Enter 2 to List Your Goals");
-                Console.WriteLine("Enter 3 to Save Your Goals");
-                Console.WriteLine("Enter 4 to Load Your Goals");
-                Console.WriteLine("Enter 5 to Record a New Event");
-                Console.WriteLine("Enter 0 to Exit");
-                Console.WriteLine("----------------------------------");
+            Console.WriteLine();
+            Console.WriteLine("             Actions:            ");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Enter 1 to Create a New Goal");
+            Console.WriteLine("Enter 2 to List Your Goals");
+            Console.WriteLine("Enter 3 to Save Your Goals");
+            Console.WriteLine("Enter 4 to Load Your Goals");
+            Console.WriteLine("Enter 5 to Record a New Event");
+            Console.WriteLine("Enter 0 to Exit");
+            Console.WriteLine("----------------------------------");
         }
         static int GetUserChoice() {
             Console.Write("Enter your choice: ");
@@ -62,17 +62,17 @@ class Program {
                 return SpChoice;
             }
         }
-        public static void SaveGoals(List<string> newGoals) 
+        public static void SaveGoals(List<Goal> newGoals, string filename) 
         {
-                // Get the user's desktop path
-                string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            // Get the user's desktop path
+            string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-                // Combine the desktop path with the file name
-                string SpFilePath = Path.Combine(SpDesktopPath, "GoalsFromGoalTracker.txt");
+            // Combine the desktop path with the file name
+            string SpFilePath = Path.Combine(SpDesktopPath, filename);
 
-                // Check if the file exists
-                if (File.Exists(SpFilePath))
-                {
+            // Check if the file exists
+            if (File.Exists(SpFilePath))
+            {
                 // Read existing goals from the file
                 List<string> SpExistingGoals = File.ReadAllLines(SpFilePath).ToList();
 
@@ -81,26 +81,26 @@ class Program {
                 spGoalList.GetGoalList();
 
                 // Add new goals without duplicates
-                foreach (string goal in newGoals)
+                foreach (Goal goal in newGoals)
                 {
-                        if (!SpExistingGoals.Contains(goal))
-                        {
-                        SpExistingGoals.Add(goal);
-                        }
+                    if (!SpExistingGoals.Contains(goal.ToString()))
+                    {
+                        SpExistingGoals.Add(goal.ToString());
+                    }
                 }
 
                 // Write the updated goals back to the file
                 File.WriteAllLines(SpFilePath, SpExistingGoals);
-                }
-                else
-                {
-                // Create a new file and write the goals to it
+            }
+            else
+            {
+            // Create a new file and write the goals to it
                 File.WriteAllLines(SpFilePath, newGoals);
-                }
+            }
 
-                Console.WriteLine("Goals saved to file.");
+            Console.WriteLine("Goals saved to file.");
         }
-        static void LoadGoals(fileName)
+        static void LoadGoals(string fileName)
         {
                 // Get the user's desktop path
                 string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -123,14 +123,14 @@ class Program {
                         string spNewGoalType = spGoalTypeFinder[0];
                         string[] goalDescriptors = spGoalTypeFinder[1].Split(",");
                         if (spNewGoalType == "CheckList"){
-                            Checklist spNewChecklist = new Checklist(spGoalTypeFinder[0], goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), int.Parse(goalDescriptors[3]), int.Parse(goalDescriptors[4]), bool.Parse(goalDescriptors[5]));
+                            Checklist spNewChecklist = new Checklist(spGoalTypeFinder[0], goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), int.Parse(goalDescriptors[3]), bool.Parse(goalDescriptors[5]));
                             //                           ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {_spTimesToDo}, {_spTimesDone}, {base._spPointsEarned}, {_spIsComplete}")
                         }else if (spNewGoalType == "Simple"){
-                            Simple spNewSimple = new Simple(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), bool.Parse(goalDescriptors[3]));
+                            Simple spNewSimple = new Simple(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), bool.Parse(goalDescriptors[3]));
                             //                          ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}")
                         }else{
-                            Eternal spNewEternal = new Eternal(string goalType, string description, int diffiucltyLevel, int timesDone);
-                            //
+                            Eternal spNewEternal = new Eternal(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[3]));
+                            //                           ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spTimesDone}");
                         }
                 }
                 }
@@ -152,12 +152,16 @@ class Program {
                 //List goals logic
             } else if (SpChoice == 3)
             {
+                Console.Write("Which file would you like to save your goals to?");
+                string spFilename = Console.ReadLine();
                 //Save goals logic
-                SaveGoals(SpNewGoals);
+                SaveGoals(SpNewGoals, spFilename);
             } else if (SpChoice == 4)
             {
                 //Load Goals logic
-                LoadGoals(fileName);
+                Console.Write("Which file would you like to load your goals from?");
+                string spFilename = Console.ReadLine();
+                LoadGoals(spFilename);
             } else if (SpChoice == 5)
             {
                 //record new event logic
