@@ -1,6 +1,5 @@
 using System;
-using System.ComponentModel.Design;
-using System.Xml.Schema;
+
 
 class Program {
 
@@ -95,7 +94,7 @@ class Program {
             else
             {
             // Create a new file and write the goals to it
-                File.WriteAllLines(SpFilePath, newGoals);
+                File.WriteAllLines(SpFilePath, newGoals.ToString());
             }
 
             Console.WriteLine("Goals saved to file.");

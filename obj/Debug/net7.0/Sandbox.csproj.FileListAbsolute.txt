@@ -110,3 +110,10 @@ C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\De
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.dll
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\refint\Sandbox.dll
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\refint\Sandbox.dll
+C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.pdb
