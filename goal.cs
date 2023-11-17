@@ -1,3 +1,7 @@
+// Sources:
+// https://byui-cse.github.io/cse210-course-2023/unit05/develop.html
+// https://www.w3schools.com/cs/cs_operators_logical.php 
+
 class Goal {
     
     // The description of a given goal. (is this not needed???)
@@ -20,17 +24,38 @@ class Goal {
     
     // The valid difficulty level that was chosen by the user.
     protected int _spDifficultyLevel;
+
+    // Keeps the score to add to the txt document.
+    protected int _spScore;
     
 
-    // Building the constuctor
+    // Setting the attributes for the new instance.
     // Input: User's goal type
     public Goal(string spGoalChoice, string description, int difficultyLevel) {
         
         // Checks if the user's input is in the accepted goal list.
         if (spAcceptedAnswers.Contains(spGoalChoice)) {
             
-            // If it is, set the goal type to the valid goal.
+            // If it is, set the goal type and description to the valid goal.
             _spGoalType = spGoalChoice.ToLower();
+            if (_spGoalType == "eternal" || _spGoalType == "eternal goal" || _spGoalType == "1") {
+                _spGoalType = "eternal";
+                _spDescription = "The eternal goal is a goal you work toward day by day and record how you're doing on it.";
+            }
+            else if (_spGoalType == "checklist" || _spGoalType == "checklist goal" ||  _spGoalType == "2") {
+                _spGoalType = "checklist";
+                _spDescription = "[descriptive desc.]";
+            }
+            else if (_spGoalType == "simple" || _spGoalType == "simple goal" ||  _spGoalType == "3") {
+                _spGoalType = "simple";
+                _spDescription = "[descriptive desc.]";
+            }
+            else {
+                Console.WriteLine("An invalid goaltype was given.");
+            }
+            
+            // Sets the goal difficulty
+            _spDifficultyLevel = difficultyLevel; 
         }
         // If it isn't write a response to the terminal (temporary)
         else {
@@ -64,12 +89,18 @@ class Goal {
         }
     }
 
+    private int SpGetGoalPointValue() {
+        return _spGoalValue;
+    }
+
     // Sets the amount of points received when a goal is done. (Will be changed by checklist, so it's a virtual method.)
     protected virtual void SpSetGivenPoints() {
         _spPointsEarned = _spDifficultyLevel * _spGoalValue; 
     }
     // Not sure what this one does??
     public virtual void SpRecordEvent() {
+        int SpGoalValue = SpGetGoalPointValue();
+        // more should go here..
 
     }
 }
