@@ -3,6 +3,10 @@ class GoalSheet
     private List<Goal> _SpGoalsList;
     private int _SpScore;
 
+    public GoalSheet(){
+        
+    }
+
     public GoalSheet (List<Goal> SpGoalsList)
     {
         _SpGoalsList = SpGoalsList;

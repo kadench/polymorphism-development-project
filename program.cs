@@ -63,6 +63,13 @@ class Program {
         }
         public static void SaveGoals(List<Goal> newGoals, string filename) 
         {
+
+            // Create a list that holds the ToString() string for each goal
+            List<string> newGoalStrings = new List<string>();
+            foreach (Goal goal in newGoals){
+                newGoalStrings.Add(goal.ToString());
+            }
+
             // Get the user's desktop path
             string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
@@ -73,31 +80,31 @@ class Program {
             if (File.Exists(SpFilePath))
             {
                 // Read existing goals from the file
-                List<string> SpExistingGoals = File.ReadAllLines(SpFilePath).ToList();
+                List<string> SpExistingGoalStrings = File.ReadAllLines(SpFilePath).ToList();
 
-                // get method of goalLIst
-                var spGoalList = new GoalSheet(newGoals);
-                spGoalList.GetGoalList();
+                // get method of goalList
+                // var spGoalList = new GoalSheet(newGoals);
+                // spGoalList.GetGoalList();
 
                 // Add new goals without duplicates
-                foreach (Goal goal in newGoals)
+                foreach (string goal in newGoalStrings)
                 {
-                    if (!SpExistingGoals.Contains(goal.ToString()))
+                    if (!SpExistingGoalStrings.Contains(goal))
                     {
-                        SpExistingGoals.Add(goal.ToString());
+                        SpExistingGoalStrings.Add(goal);
                     }
                 }
 
                 // Write the updated goals back to the file
-                File.WriteAllLines(SpFilePath, SpExistingGoals);
+                File.WriteAllLines(SpFilePath, SpExistingGoalStrings);
             }
             else
             {
             // Create a new file and write the goals to it
-                File.WriteAllLines(SpFilePath, newGoals.ToString());
+                File.WriteAllLines(SpFilePath, newGoalStrings);
             }
 
-            Console.WriteLine("Goals saved to file.");
+            Console.WriteLine($"Goals saved to file {filename}.");
         }
         static void LoadGoals(string fileName)
         {
@@ -129,7 +136,7 @@ class Program {
                             //                          ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}")
                         }else{
                             Eternal spNewEternal = new Eternal(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[3]));
-                            //                           ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spTimesDone}");
+                            //                                 _spGoalType      _spDescription        _spDifficultyLevel   /_spPointsEarned/  _spTimesDone
                         }
                 }
                 }
@@ -138,23 +145,114 @@ class Program {
                 Console.WriteLine("No goals file found.");
                 }
         }
+
+        static Goal CreateGoal(){
+            //Get the user's goal choice
+
+            int spUserChoice = 0;
+            bool spCreatedGoal = false;
+
+            do{
+            try{
+            Console.WriteLine("Choose the number for one of the Following types of goals: "); 
+            Console.WriteLine("1. Simple goal: A goal that is completed once with no repititions. ");
+            Console.WriteLine("2. CheckList goal: Must be done a chosen number of times before it is complete. ");
+            Console. WriteLine("3. Eternal Goal: Changes lifestyle by creating a permanent goal. ");
+
+            spUserChoice = int.Parse(Console.ReadLine());
+            }catch (Exception ){
+
+                Console.WriteLine("That is not a number. Please choose a number between 1 and 3. ");
+            }
+            
+            if (spUserChoice == 1){
+                //string goalType, string description, int difficultyLevel, bool isComplete
+                Console.WriteLine("What is your new Simple goal?");
+                Console.Write(">");
+                string spDescription = Console.ReadLine();
+                
+                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                Console.Write(">");
+                int spDifficultyLevel = int.Parse(Console.ReadLine());
+
+                Simple spNewGoal = new Simple("Simple", spDescription, spDifficultyLevel, false);
+                spCreatedGoal = true;
+                return spNewGoal;
+
+
+
+            }else if (spUserChoice == 2){
+                Console.WriteLine("What is your new Checklist goal?");
+                Console.Write(">");
+                string spDescription = Console.ReadLine();
+                
+                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                Console.Write(">");
+                int spDifficultyLevel = int.Parse(Console.ReadLine());
+                Console.WriteLine("How many times does this goal need to be completed?");
+                Console.Write(">");
+                int spTimesToDo = int.Parse(Console.ReadLine());
+
+                Checklist spNewGoal = new Checklist("Checklist", spDescription, spDifficultyLevel, spTimesToDo, 0, false);
+                spCreatedGoal = true;
+                return spNewGoal;
+
+
+            }else if (spUserChoice == 3){
+                Console.WriteLine("What is your new Eternal goal?");
+                Console.Write(">");
+                string spDescription = Console.ReadLine();
+                
+                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                Console.Write(">");
+                int spDifficultyLevel = int.Parse(Console.ReadLine());
+
+                Eternal spNewGoal = new Eternal("Eternal", spDescription, spDifficultyLevel, 0);
+                spCreatedGoal = true;
+                return spNewGoal;
+
+
+            }else{
+                Console.WriteLine("Your choice is not a valid response. Please choose a number between 1 and 3. ");
+            }
+            
+            }while(spCreatedGoal == false);
+
+
+        }
         static void Main(string[] args) {
             StartingMessage();
+
+            var spGoalsheet = new GoalSheet();
+
             Menu();
             int SpChoice = GetUserChoice();
 
             if (SpChoice == 1)
             {
-                //Create goal logic logic
+             //Create a New Goal 
+                Goal spGoalInstance = CreateGoal();
+                spGoalsheet.AddToList(spGoalInstance);
+
+
+                
             } else if (SpChoice == 2)
             {
-                //List goals logic
+                //List existing goals
+                List<Goal> spGoalList = spGoalsheet.GetGoalList();
+                foreach (Goal goal in spGoalList){
+                    Console.WriteLine(goal.SpDisplayFormat());
+                }
+
+
+
             } else if (SpChoice == 3)
             {
                 Console.Write("Which file would you like to save your goals to?");
                 string spFilename = Console.ReadLine();
                 //Save goals logic
-                SaveGoals(SpNewGoals, spFilename);
+                List<Goal> SpNewGoalList = spGoalsheet.GetGoalList();
+                SaveGoals(SpNewGoalList, spFilename);
             } else if (SpChoice == 4)
             {
                 //Load Goals logic

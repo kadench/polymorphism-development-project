@@ -16,6 +16,16 @@ class Simple : Goal {
          return ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}");
     }
 
+    public override string SpDisplayFormat(){
+        string spDisplayComplete;
+        if (_spIsComplete == false){
+            spDisplayComplete = "is not";
+        }else{
+            spDisplayComplete = "is";
+        }
+        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and {spDisplayComplete} completed. ");
+    }
+
 
 
 }

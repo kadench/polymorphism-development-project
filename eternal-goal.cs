@@ -18,5 +18,12 @@ class Eternal : Goal{
         return ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spTimesDone}");
     }
 
+    public override string SpDisplayFormat(){
+        
+        
+        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and has been completed {_spTimesDone} times. ");
+    }
+
+
 
 }

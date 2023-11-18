@@ -43,5 +43,13 @@ class Checklist : Goal {
     }
 
 
+    public override string SpDisplayFormat(){
+        string spDisplayCompletion = ($"{_spTimesDone}/{_spTimesToDo}");
+        
+        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and is {spDisplayCompletion} completed. ");
+    }
+
+
+
 
 }

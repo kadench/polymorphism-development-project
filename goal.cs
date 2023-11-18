@@ -40,20 +40,20 @@ class Goal {
             _spGoalType = spGoalChoice.ToLower();
             if (_spGoalType == "eternal" || _spGoalType == "eternal goal" || _spGoalType == "1") {
                 _spGoalType = "eternal";
-                _spDescription = spDescription;
+                //_spDescription = spDescription;
             }
             else if (_spGoalType == "checklist" || _spGoalType == "checklist goal" ||  _spGoalType == "2") {
                 _spGoalType = "checklist";
-                _spDescription = spDescription;
+                //_spDescription = spDescription;
             }
             else if (_spGoalType == "simple" || _spGoalType == "simple goal" ||  _spGoalType == "3") {
                 _spGoalType = "simple";
-                _spDescription = spDescription;
             }
             else {
                 Console.WriteLine("An invalid goaltype was given.");
             }
             
+            _spDescription = spDescription;
             // Sets the goal difficulty
             _spDifficultyLevel = spDifficultyLevel; 
         }
@@ -102,6 +102,10 @@ class Goal {
         int SpGoalValue = SpGetGoalPointValue();
         // more should go here..
 
+    }
+
+    public virtual string SpDisplayFormat(){
+        return ("");
     }
 }
 
