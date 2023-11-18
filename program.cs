@@ -148,22 +148,25 @@ class Program {
 
         static Goal CreateGoal(){
             //Get the user's goal choice
-
+            string spUserResponse;
             int spUserChoice = 0;
             bool spCreatedGoal = false;
 
-            do{
-                //try{
+            while (spCreatedGoal == false){
+                try{
                 Console.WriteLine("Choose the number for one of the Following types of goals: "); 
                 Console.WriteLine("1. Simple goal: A goal that is completed once with no repititions. ");
                 Console.WriteLine("2. CheckList goal: Must be done a chosen number of times before it is complete. ");
                 Console. WriteLine("3. Eternal Goal: Changes lifestyle by creating a permanent goal. ");
 
-                spUserChoice = int.Parse(Console.ReadLine());
-                // }catch (Exception ){
+                spUserResponse = Console.ReadLine();
+                spUserChoice = int.Parse(spUserResponse);
+                }catch (Exception ){
 
-                    // Console.WriteLine("That is not a number. Please choose a number between 1 and 3. ");
-                //}
+                    Console.WriteLine("That is not a number. Please choose a number between 1 and 3. ");
+                    
+            
+                }
                 
                 if (spUserChoice == 1){
                     //string goalType, string description, int difficultyLevel, bool isComplete
@@ -214,9 +217,10 @@ class Program {
 
                 }else{
                     Console.WriteLine("Your choice is not a valid response. Please choose a number between 1 and 3. ");
+                    
                 }
             
-            }while(spCreatedGoal == false);
+            }
 
 
         }
