@@ -26,7 +26,7 @@ class Goal {
     protected int _spDifficultyLevel;
 
     // Keeps the score to add to the txt document.
-    // protected int _spScore;
+    // protected int _spScore; // Need to set this somehow.
     
 
     // Setting the attributes for the new instance.
