@@ -82,27 +82,11 @@ C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorizatio
 C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\bin\Debug\net7.0\Sandbox.pdb
 C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
 C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\prove\scripture_memorization\obj\Debug\net7.0\ref\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.exe
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.deps.json
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.runtimeconfig.json
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\bin\Debug\net7.0\Sandbox.pdb
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\refint\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.pdb
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\assignment_order\obj\Debug\net7.0\ref\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\refint\Sandbox.dll
-C:\Users\garfu\Documents\School\Semester 4\Programming With Classes\meditation_activity\polymorphism-development-project\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\bin\Debug\net7.0\Sandbox.exe
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\bin\Debug\net7.0\Sandbox.deps.json
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\bin\Debug\net7.0\Sandbox.runtimeconfig.json
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\bin\Debug\net7.0\Sandbox.dll
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\bin\Debug\net7.0\Sandbox.pdb
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
@@ -110,10 +94,5 @@ C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\De
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.dll
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\refint\Sandbox.dll
 C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.pdb
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfoInputs.cache
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.AssemblyInfo.cs
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.csproj.CoreCompileInputs.cache
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.dll
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\refint\Sandbox.dll
-C:\Users\Emma\OneDrive\Documents\cse210-projects-ees\polymorphism-development-project\obj\Debug\net7.0\Sandbox.pdb
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\Sandbox.genruntimeconfig.cache
+C:\Users\garfu\OneDrive\Documents\GitHub\polymorphism-development-project\obj\Debug\net7.0\ref\Sandbox.dll
