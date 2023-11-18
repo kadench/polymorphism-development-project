@@ -153,68 +153,68 @@ class Program {
             bool spCreatedGoal = false;
 
             do{
-            try{
-            Console.WriteLine("Choose the number for one of the Following types of goals: "); 
-            Console.WriteLine("1. Simple goal: A goal that is completed once with no repititions. ");
-            Console.WriteLine("2. CheckList goal: Must be done a chosen number of times before it is complete. ");
-            Console. WriteLine("3. Eternal Goal: Changes lifestyle by creating a permanent goal. ");
+                //try{
+                Console.WriteLine("Choose the number for one of the Following types of goals: "); 
+                Console.WriteLine("1. Simple goal: A goal that is completed once with no repititions. ");
+                Console.WriteLine("2. CheckList goal: Must be done a chosen number of times before it is complete. ");
+                Console. WriteLine("3. Eternal Goal: Changes lifestyle by creating a permanent goal. ");
 
-            spUserChoice = int.Parse(Console.ReadLine());
-            }catch (Exception ){
+                spUserChoice = int.Parse(Console.ReadLine());
+                // }catch (Exception ){
 
-                Console.WriteLine("That is not a number. Please choose a number between 1 and 3. ");
-            }
-            
-            if (spUserChoice == 1){
-                //string goalType, string description, int difficultyLevel, bool isComplete
-                Console.WriteLine("What is your new Simple goal?");
-                Console.Write(">");
-                string spDescription = Console.ReadLine();
+                    // Console.WriteLine("That is not a number. Please choose a number between 1 and 3. ");
+                //}
                 
-                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
-                Console.Write(">");
-                int spDifficultyLevel = int.Parse(Console.ReadLine());
+                if (spUserChoice == 1){
+                    //string goalType, string description, int difficultyLevel, bool isComplete
+                    Console.WriteLine("What is your new Simple goal?");
+                    Console.Write(">");
+                    string spDescription = Console.ReadLine();
+                    
+                    Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                    Console.Write(">");
+                    int spDifficultyLevel = int.Parse(Console.ReadLine());
 
-                Simple spNewGoal = new Simple("Simple", spDescription, spDifficultyLevel, false);
-                spCreatedGoal = true;
-                return spNewGoal;
-
-
-
-            }else if (spUserChoice == 2){
-                Console.WriteLine("What is your new Checklist goal?");
-                Console.Write(">");
-                string spDescription = Console.ReadLine();
-                
-                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
-                Console.Write(">");
-                int spDifficultyLevel = int.Parse(Console.ReadLine());
-                Console.WriteLine("How many times does this goal need to be completed?");
-                Console.Write(">");
-                int spTimesToDo = int.Parse(Console.ReadLine());
-
-                Checklist spNewGoal = new Checklist("Checklist", spDescription, spDifficultyLevel, spTimesToDo, 0, false);
-                spCreatedGoal = true;
-                return spNewGoal;
+                    Simple spNewGoal = new Simple("Simple", spDescription, spDifficultyLevel, false);
+                    spCreatedGoal = true;
+                    return spNewGoal;
 
 
-            }else if (spUserChoice == 3){
-                Console.WriteLine("What is your new Eternal goal?");
-                Console.Write(">");
-                string spDescription = Console.ReadLine();
-                
-                Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
-                Console.Write(">");
-                int spDifficultyLevel = int.Parse(Console.ReadLine());
 
-                Eternal spNewGoal = new Eternal("Eternal", spDescription, spDifficultyLevel, 0);
-                spCreatedGoal = true;
-                return spNewGoal;
+                }else if (spUserChoice == 2){
+                    Console.WriteLine("What is your new Checklist goal?");
+                    Console.Write(">");
+                    string spDescription = Console.ReadLine();
+                    
+                    Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                    Console.Write(">");
+                    int spDifficultyLevel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How many times does this goal need to be completed?");
+                    Console.Write(">");
+                    int spTimesToDo = int.Parse(Console.ReadLine());
+
+                    Checklist spNewGoal = new Checklist("Checklist", spDescription, spDifficultyLevel, spTimesToDo, 0, false);
+                    spCreatedGoal = true;
+                    return spNewGoal;
+                    
+
+                }else if (spUserChoice == 3){
+                    Console.WriteLine("What is your new Eternal goal?");
+                    Console.Write(">");
+                    string spDescription = Console.ReadLine();
+                    
+                    Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                    Console.Write(">");
+                    int spDifficultyLevel = int.Parse(Console.ReadLine());
+
+                    Eternal spNewGoal = new Eternal("Eternal", spDescription, spDifficultyLevel, 0);
+                    spCreatedGoal = true;
+                    return spNewGoal;
 
 
-            }else{
-                Console.WriteLine("Your choice is not a valid response. Please choose a number between 1 and 3. ");
-            }
+                }else{
+                    Console.WriteLine("Your choice is not a valid response. Please choose a number between 1 and 3. ");
+                }
             
             }while(spCreatedGoal == false);
 
