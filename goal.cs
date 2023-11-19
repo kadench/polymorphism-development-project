@@ -107,6 +107,14 @@ class Goal {
     public virtual string SpDisplayFormat(){
         return ("");
     }
+    
+    protected virtual void SpSetScore() {
+        _spScore = _spGoalValue * _spDifficultyLevel; 
+    }
+
+    protected int SpGetScore() {
+        return _spScore;
+    }
 }
 
 // Simple: 50
