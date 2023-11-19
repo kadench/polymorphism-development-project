@@ -217,6 +217,8 @@ class Program {
 
                 }else{
                     Console.WriteLine("Your choice is not a valid response. Please choose a number between 1 and 3. ");
+                    Simple newSimple = new Simple("Simple", "jslkdjfls", 2, false);
+                    return newSimple;
                     
                 }
             
