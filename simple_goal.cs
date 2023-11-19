@@ -9,7 +9,7 @@ class Simple : Goal {
 
     public override void SpRecordEvent(){
         _spIsComplete = true;
-        base._spPointsEarned += base._spGoalValue;
+        base._spPointsEarned += base._spScore;
     }
 
     public override string ToString(){

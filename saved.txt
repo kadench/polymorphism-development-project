@@ -1,0 +1,2 @@
+simple: make a cake, 3, 0, false
+checklist: run a mile, 5, 0, 5, 0, false

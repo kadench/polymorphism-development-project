@@ -106,39 +106,43 @@ class Program {
 
             Console.WriteLine($"Goals saved to file {filename}.");
         }
-        static void LoadGoals(string fileName)
+        static void LoadGoals(string fileName, GoalSheet spGoalsheet)
         {
                 // Get the user's desktop path
-                string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //string SpDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
                 // Combine the desktop path with the file name
-                string SpFilePath = Path.Combine(SpDesktopPath, "GoalsFromGoalTracker.txt");
+                //string SpFilePath = Path.Combine(SpDesktopPath, "GoalsFromGoalTracker.txt");
 
                 // Check if the file exists
-                if (File.Exists(SpFilePath))
+                if (File.Exists(fileName))
                 {
                 // Read all lines from the file
-                string[] SpGoals = File.ReadAllLines(SpFilePath);
+                string[] SpGoals = File.ReadAllLines(fileName);
 
                 // Display each goal on the console
-                Console.WriteLine("Loaded Goals:");
+                
                 foreach (string goal in SpGoals)
                 {
-                        Console.WriteLine(goal);
+                        
                         string[] spGoalTypeFinder = goal.Split(":");
                         string spNewGoalType = spGoalTypeFinder[0];
                         string[] goalDescriptors = spGoalTypeFinder[1].Split(",");
-                        if (spNewGoalType == "CheckList"){
+                        if (spNewGoalType == "checkList"){
                             Checklist spNewChecklist = new Checklist(spGoalTypeFinder[0], goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[2]), int.Parse(goalDescriptors[3]), bool.Parse(goalDescriptors[5]));
-                            //                           ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {_spTimesToDo}, {_spTimesDone}, {base._spPointsEarned}, {_spIsComplete}")
-                        }else if (spNewGoalType == "Simple"){
+                            spGoalsheet.AddToList(spNewChecklist);
+                            
+                        }else if (spNewGoalType == "simple"){
                             Simple spNewSimple = new Simple(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), bool.Parse(goalDescriptors[3]));
-                            //                          ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}")
+                            spGoalsheet.AddToList(spNewSimple);
+
                         }else{
                             Eternal spNewEternal = new Eternal(spNewGoalType, goalDescriptors[0], int.Parse(goalDescriptors[1]), int.Parse(goalDescriptors[3]));
-                            //                                 _spGoalType      _spDescription        _spDifficultyLevel   /_spPointsEarned/  _spTimesDone
+                            spGoalsheet.AddToList(spNewEternal);
                         }
+                
                 }
+                Console.WriteLine("Your goals have been saved. ");
                 }
                 else
                 {
@@ -146,10 +150,39 @@ class Program {
                 }
         }
 
+
+    // public static int GetDifficulty(){
+    //      int spDifficultyLevel = 11;
+    //         do
+    //         {
+    //             try
+    //             {
+    //                 Console.WriteLine();
+    //                 Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+    //                 Console.Write("> ");
+    //                 spDifficultyLevel = int.Parse(Console.ReadLine());
+
+    //                 if (spDifficultyLevel <= 10)
+    //                 {
+    //                     return spDifficultyLevel;
+    //                 }
+    //                 else
+    //                 {
+    //                     Console.WriteLine("Invalid difficulty level. Please enter a number between 1 and 10.");
+    //                 }
+    //             }
+    //             catch (FormatException)
+    //             {
+    //                 Console.WriteLine("Invalid input. Please enter a valid number between 1 and 10.");
+    //             }
+    //         } while (spDifficultyLevel > 10 && spDifficultyLevel < 1);
+    //         }
+
+
         static Goal CreateGoal(){
         // Get the user's goal choice
         string spUserResponse;
-        int spUserChoice = 0;
+        int spUserChoice;
         bool spCreatedGoal = false;
 
         do
@@ -172,33 +205,19 @@ class Program {
                     Console.WriteLine("What is your new Simple goal?");
                     Console.Write("> ");
                     string spDescription = Console.ReadLine();
-
-                    int spDifficultyLevel = 11;
-                    do
-                    {
-                        try
-                        {
+                    
+                       
                             Console.WriteLine();
                             Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
                             Console.Write("> ");
-                            spDifficultyLevel = int.Parse(Console.ReadLine());
-
-                            if (spDifficultyLevel <= 10)
-                            {
+                            int spDifficultyLevel = int.Parse(Console.ReadLine());
+                            
                                 Simple spNewGoal = new Simple("simple", spDescription, spDifficultyLevel, false);
                                 spCreatedGoal = true;
+                                
                                 return spNewGoal;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid difficulty level. Please enter a number between 1 and 10.");
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Invalid input. Please enter a valid number between 1 and 10.");
-                        }
-                    } while (spDifficultyLevel > 10);
+                        
+                   
                 }
                 else if (spUserChoice == 2)
                 {
@@ -207,18 +226,11 @@ class Program {
                     Console.Write("> ");
                     string spDescription = Console.ReadLine();
 
-                    int spDifficultyLevel = 11;
-                    do
-                    {
-                        try
-                        {
+                   
                             Console.WriteLine();
                             Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
                             Console.Write("> ");
-                            spDifficultyLevel = int.Parse(Console.ReadLine());
-
-                            if (spDifficultyLevel <= 10)
-                            {
+                            int spDifficultyLevel = int.Parse(Console.ReadLine());
                                 Console.WriteLine("How many times does this goal need to be completed?");
                                 Console.Write(">");
                                 int spTimesToDo = int.Parse(Console.ReadLine());
@@ -226,51 +238,25 @@ class Program {
                                 Checklist spNewGoal = new Checklist("checklist", spDescription, spDifficultyLevel, spTimesToDo, 0, false);
                                 spCreatedGoal = true;
                                 return spNewGoal;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid difficulty level. Please enter a number between 1 and 10.");
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Invalid input. Please enter a valid number between 1 and 10.");
-                        }
-                    } while (spDifficultyLevel > 10);
+                           
                 }
                 else if (spUserChoice == 3)
                 {
-                    int spDifficultyLevel = 11;
-                    do
-                    {
-                        try
-                        {
+                    
                             Console.WriteLine();
                             Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
                             Console.Write("> ");
-                            spDifficultyLevel = int.Parse(Console.ReadLine());
+                            int spDifficultyLevel = int.Parse(Console.ReadLine());
 
                             // string goalType, string description, int difficultyLevel, bool isComplete
                             Console.WriteLine("What is your new Eternal goal?");
                             Console.Write("> ");
                             string spDescription = Console.ReadLine();
 
-                            if (spDifficultyLevel <= 10)
-                            {
+                            
                                 Eternal spNewGoal = new Eternal("eternal", spDescription, spDifficultyLevel, 0);
                                 spCreatedGoal = true;
                                 return spNewGoal;
-                                }
-                            else
-                            {
-                                Console.WriteLine("Invalid difficulty level. Please enter a number between 1 and 10.");
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Invalid input. Please enter a valid number between 1 and 10.");
-                        }
-                    } while (spDifficultyLevel > 10);
 
                 }
                 else
@@ -290,11 +276,13 @@ class Program {
     }
 
 
-        }
+        
         static void Main(string[] args) {
             StartingMessage();
 
-            var spGoalsheet = new GoalSheet();
+            GoalSheet spGoalsheet = new GoalSheet();
+            bool spFinished = false;
+            do{
 
             Menu();
             int SpChoice = GetUserChoice();
@@ -302,8 +290,12 @@ class Program {
             if (SpChoice == 1)
             {
              //Create a New Goal 
-                Goal spGoalInstance = CreateGoal();
-                spGoalsheet.AddToList(spGoalInstance);
+                //Goal spGoalInstance = CreateGoal();
+                Goal spNewGoal = CreateGoal();
+                spGoalsheet.AddToList(spNewGoal);
+                
+                
+                //CreateGoal();
 
 
                 
@@ -327,21 +319,24 @@ class Program {
             } else if (SpChoice == 4)
             {
                 //Load Goals logic
-                Console.Write("Which file would you like to load your goals from?");
+                Console.Write("Which file would you like to load your goals from? ");
                 string spFilename = Console.ReadLine();
-                LoadGoals(spFilename);
+                LoadGoals(spFilename, spGoalsheet);
+                Thread.Sleep(1000);
             } else if (SpChoice == 5)
             {
                 //record new event logic
             } else if (SpChoice == 0)
             {
                 Console.WriteLine("End Program.");
+                spFinished = true;
                 Environment.Exit(1);
             } else 
             {
                 Console.WriteLine("Invalid Input, try again..");
                 GetUserChoice();
             }
+            }while(spFinished == false);
 
             EndingMessage();
         }

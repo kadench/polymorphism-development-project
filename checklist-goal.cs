@@ -33,7 +33,7 @@ class Checklist : Goal {
 
     public override void SpRecordEvent(){
         SpCountTimesDone();
-        base._spPointsEarned += base._spGoalValue;
+        base._spPointsEarned += base._spScore;
 
     }
 

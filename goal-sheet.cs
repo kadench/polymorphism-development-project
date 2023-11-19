@@ -1,15 +1,17 @@
 class GoalSheet 
 {
-    private List<Goal> _SpGoalsList;
+    private List<Goal> _SpGoalsList = new List<Goal>();
     private int _SpScore;
+
 
     public GoalSheet(){
         
     }
 
-    public GoalSheet (List<Goal> SpGoalsList)
+    public GoalSheet (Goal name)
     {
-        _SpGoalsList = SpGoalsList;
+        
+    
     }
     public GoalSheet (int SpScore)
     {
@@ -17,7 +19,8 @@ class GoalSheet
     }
 
     public void AddToList(Goal SpNewGoal) 
-    {
+    {   
+        
         //get list and append
         _SpGoalsList.Add(SpNewGoal);
     }

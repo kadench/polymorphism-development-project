@@ -2,7 +2,7 @@
 // https://byui-cse.github.io/cse210-course-2023/unit05/develop.html
 // https://www.w3schools.com/cs/cs_operators_logical.php 
 
-class Goal {
+public abstract class Goal {
     
     // The description of a given goal. (is this not needed???)
     protected string _spDescription;
@@ -53,17 +53,17 @@ class Goal {
                 Console.WriteLine("An invalid goaltype was given.");
             }
             
-            _spDescription = spDescription;
+            
             // Sets the goal difficulty
-            _spDifficultyLevel = spDifficultyLevel; 
+            _spDescription = spDescription;
+            SpSetDifficultyLvl(spDifficultyLevel);
+            SpSetGoalPointValue();
+            SpSetScore();
         }
         // If it isn't write a response to the terminal (temporary)
         else {
             Console.WriteLine("Invalid goal name was given. Please try again.");
         }
-        SpSetGoalPointValue();
-        _spDescription = spDescription;
-        SpSetDifficultyLvl(spDifficultyLevel);
 
     }
     // Sets the difficulty level of the complete goal from the user's chosen difficulty level.
@@ -98,11 +98,8 @@ class Goal {
         _spPointsEarned = _spDifficultyLevel * _spGoalValue; 
     }
     // Not sure what this one does??
-    public virtual void SpRecordEvent() {
-        int SpGoalValue = SpGetGoalPointValue();
-        // more should go here..
-
-    }
+    public abstract void SpRecordEvent();
+    
 
     public virtual string SpDisplayFormat(){
         return ("");
