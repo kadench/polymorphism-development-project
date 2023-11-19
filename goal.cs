@@ -26,7 +26,7 @@ class Goal {
     protected int _spDifficultyLevel;
 
     // Keeps the score to add to the txt document.
-    // protected int _spScore; // Need to set this somehow.
+    protected int _spScore; // Need to set this somehow.
     
 
     // Setting the attributes for the new instance.
@@ -106,6 +106,14 @@ class Goal {
 
     public virtual string SpDisplayFormat(){
         return ("");
+    }
+    
+    protected virtual void SpSetScore() {
+        _spScore = _spGoalValue * _spDifficultyLevel; 
+    }
+
+    protected int SpGetScore() {
+        return _spScore;
     }
 }
 
