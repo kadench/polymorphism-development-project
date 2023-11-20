@@ -131,8 +131,8 @@ class Program {
                     {
                          if (spGoalComponents.Length >= 6)
                         {
-                            int spTimesToDo = int.Parse(spGoalComponents[4]); 
-                            int spCurrentCount = int.Parse(spGoalComponents[5]); 
+                            int spTimesToDo = int.Parse(spGoalComponents[3]); 
+                            int spCurrentCount = int.Parse(spGoalComponents[4]); 
 
                             spCreatedGoal = new Checklist(spGoalType, spDescription, spDifficultyLevel, spTimesToDo, spCurrentCount, spIsComplete);
                         }
@@ -145,7 +145,7 @@ class Program {
                     else if (spGoalType == "eternal")
                     {
                        
-                        int spCount = int.Parse(spGoalComponents[4]); 
+                        int spCount = int.Parse(spGoalComponents[3]); 
                         spCreatedGoal = new Eternal(spGoalType, spDescription, spDifficultyLevel, spCount);
                     }
                     else
@@ -353,6 +353,7 @@ class Program {
                 Thread.Sleep(1000);
             } else if (SpChoice == 5)
             {
+                Console.Write("which goal did you complete?");
                 //record new event logic
             } else if (SpChoice == 6)
             {
