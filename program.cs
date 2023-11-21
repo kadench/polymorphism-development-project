@@ -222,7 +222,7 @@ class Program {
                 else if (spUserChoice == 2)
                 {
                     // string goalType, string description, int difficultyLevel, bool isComplete
-                    Console.WriteLine("What is your new Simple goal?");
+                    Console.WriteLine("What is your new Checklist goal?");
                     Console.Write("> ");
                     string spDescription = Console.ReadLine();
 
@@ -294,8 +294,6 @@ class Program {
                 Goal spNewGoal = CreateGoal();
                 spGoalsheet.AddToList(spNewGoal);
                 
-                
-                //CreateGoal();
 
 
                 
