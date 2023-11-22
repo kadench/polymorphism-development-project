@@ -65,6 +65,23 @@ class Program {
                 return SpChoice;
             }
         }
+    static string SpGetFilePath(string spFileName){
+        string spFilePath = " ";
+        do{
+            Console.WriteLine("Is your file on your desktop?(y/n) ");
+            Console.Write("> ");
+            string spPathChoice = Console.ReadLine();
+            if (spPathChoice.ToLower() == "y" || spPathChoice.ToLower() == "yes"){
+                spFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), spFileName);
+            }else if (spPathChoice.ToLower() == "n" || spPathChoice.ToLower() == "no"){
+                spFilePath = spFileName;
+            }else{
+                Console.WriteLine("That was not an option. Please try again. ");
+            }
+        }while(spFilePath == " ");
+
+        return spFilePath;
+    }
         public static void SaveGoals(List<Goal> spNewGoals, string spFilename) 
         {
             // Create a list that holds the ToString() string for each goal
@@ -75,93 +92,92 @@ class Program {
             }
 
             // Get the user's desktop path
-            string spDesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string spFilePath = SpGetFilePath(spFilename);
 
-            // Combine the desktop path with the file name
-            string spFilePath = Path.Combine(spDesktopPath, spFilename);
-
-            // Check if the file exists
-            if (File.Exists(spFilePath))
-            {
-                // Append new goals to the existing file
-                File.AppendAllLines(spFilePath, spNewGoalStrings);
-            }
-            else
-            {
-                // Create a new file and write the goals to it
+            // write the goals the file
                 File.WriteAllLines(spFilePath, spNewGoalStrings);
-            }
+            
 
             Console.WriteLine($"Goals saved to file {spFilename}.");
         }
 
+
+
+
+
     static void LoadGoals(string spFileName, GoalSheet spGoalsheet)
     {
     // Get the user-provided file path
-    string spFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), spFileName);
-
+    string spFilePath = SpGetFilePath(spFileName);
     // Check if the file exists
     if (File.Exists(spFilePath))
     {
         // Read all lines from the file
         string[] spGoalStrings = File.ReadAllLines(spFilePath);
 
+
+
         // Create goals based on the loaded strings
         foreach (string spGoalString in spGoalStrings)
         {
-            string[] spGoalComponents = spGoalString.Split(",");
+           
+            string[] spSeparatedGoalType = spGoalString.Split(":");
+            string[] spGoalComponents = spSeparatedGoalType[1].Split(",");
+            
 
-            // Ensure that the goal string has the expected number of components
+            // Ensure that the goal string has the minimal number of components
             if (spGoalComponents.Length >= 4)
             {
-                string spGoalType = spGoalComponents[0];
-                string spDescription = spGoalComponents[1];
-                int spDifficultyLevel = int.Parse(spGoalComponents[2]);
+                string spGoalType = spSeparatedGoalType[0];
+                string spDescription = spGoalComponents[0];
+                int spDifficultyLevel = int.Parse(spGoalComponents[1]);
+                //int spPointsEarned = int.Parse(spGoalComponents[2]);
+                
 
-                // Try parsing the boolean value
-                if (bool.TryParse(spGoalComponents[3].Trim(), out bool spIsComplete))
+                
+                // Create a goal based on the goal type
+                Goal spCreatedGoal;
+                if (spGoalType == "simple")
                 {
-                    // Create a goal based on the goal type
-                    Goal spCreatedGoal;
-                    if (spGoalType == "simple")
+                    bool spIsComplete = bool.Parse(spGoalComponents[3]);
+                    spCreatedGoal = new Simple(spGoalType, spDescription, spDifficultyLevel, spIsComplete);
+                    
+                    
+                }
+                else if (spGoalType == "checklist")
+                {
+                        if (spGoalComponents.Length >= 6)
                     {
-                        spCreatedGoal = new Simple(spGoalType, spDescription, spDifficultyLevel, spIsComplete);
-                    }
-                    else if (spGoalType == "checklist")
-                    {
-                         if (spGoalComponents.Length >= 6)
-                        {
-                            int spTimesToDo = int.Parse(spGoalComponents[3]); 
-                            int spCurrentCount = int.Parse(spGoalComponents[4]); 
+                        int spTimesToDo = int.Parse(spGoalComponents[3]); 
+                        int spCurrentCount = int.Parse(spGoalComponents[4]); 
+                        bool spIsComplete = bool.Parse(spGoalComponents[5]);
 
-                            spCreatedGoal = new Checklist(spGoalType, spDescription, spDifficultyLevel, spTimesToDo, spCurrentCount, spIsComplete);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Invalid format for checklist goal: {spGoalString}");
-                            continue;
-                        }
-                    }
-                    else if (spGoalType == "eternal")
-                    {
-                       
-                        int spCount = int.Parse(spGoalComponents[3]); 
-                        spCreatedGoal = new Eternal(spGoalType, spDescription, spDifficultyLevel, spCount);
+                        spCreatedGoal = new Checklist(spGoalType, spDescription, spDifficultyLevel, spTimesToDo, spCurrentCount, spIsComplete);
+                        
                     }
                     else
                     {
-                        Console.WriteLine($"{spGoalType}");
+                        Console.WriteLine($"Invalid format for checklist goal: {spGoalString}");
                         continue;
                     }
-
-                    // Add the goal to the GoalSheet
-                    spGoalsheet.AddToList(spCreatedGoal);
+                }
+                else if (spGoalType == "eternal")
+                {
+                    
+                    int spCount = int.Parse(spGoalComponents[3]); 
+                    spCreatedGoal = new Eternal(spGoalType, spDescription, spDifficultyLevel, spCount);
+                    
                 }
                 else
                 {
-                    Console.WriteLine($"Error parsing boolean value: {spGoalComponents[3].Trim()}");
-                    continue; // Skip this iteration to avoid adding an invalid goal
+                    Console.WriteLine($"{spGoalType}");
+                    continue;
                 }
+
+                // Add the goal to the GoalSheet
+                spGoalsheet.AddToList(spCreatedGoal);
+                    
+                
             }
             else
             {
@@ -169,7 +185,8 @@ class Program {
             }
         }
 
-        Console.WriteLine("Your goals have been loaded.");
+        Console.WriteLine($"Your goals have been loaded {spGoalsheet.GetGoalList().Count}.");
+        
     }
     else
     {
@@ -179,35 +196,10 @@ class Program {
 
 
 
-    // public static int GetDifficulty(){
-    //      int spDifficultyLevel = 11;
-    //         do
-    //         {
-    //             try
-    //             {
-    //                 Console.WriteLine();
-    //                 Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
-    //                 Console.Write("> ");
-    //                 spDifficultyLevel = int.Parse(Console.ReadLine());
-
-    //                 if (spDifficultyLevel <= 10)
-    //                 {
-    //                     return spDifficultyLevel;
-    //                 }
-    //                 else
-    //                 {
-    //                     Console.WriteLine("Invalid difficulty level. Please enter a number between 1 and 10.");
-    //                 }
-    //             }
-    //             catch (FormatException)
-    //             {
-    //                 Console.WriteLine("Invalid input. Please enter a valid number between 1 and 10.");
-    //             }
-    //         } while (spDifficultyLevel > 10 && spDifficultyLevel < 1);
-    //         }
 
 
-        static Goal CreateGoal(){
+
+    static Goal CreateGoal(){
         // Get the user's goal choice
         string spUserResponse;
         int spUserChoice;
@@ -270,17 +262,18 @@ class Program {
                 }
                 else if (spUserChoice == 3)
                 {
-                    
-                            Console.WriteLine();
-                            Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
-                            Console.Write("> ");
-                            int spDifficultyLevel = int.Parse(Console.ReadLine());
 
                             // string goalType, string description, int difficultyLevel, bool isComplete
                             Console.WriteLine("What is your new Eternal goal?");
                             Console.Write("> ");
                             string spDescription = Console.ReadLine();
 
+
+
+                            Console.WriteLine();
+                            Console.WriteLine("On a scale of 1 to 10, how difficult will it be to complete this goal? ");
+                            Console.Write("> ");
+                            int spDifficultyLevel = int.Parse(Console.ReadLine());
                             
                                 Eternal spNewGoal = new Eternal("eternal", spDescription, spDifficultyLevel, 0);
                                 spCreatedGoal = true;
@@ -304,11 +297,54 @@ class Program {
     }
 
 
+
+    static public void SpDisplayAllGoals(List<Goal> spGoalList){
+        
+                int i = 1;
+                foreach (Goal goal in spGoalList){
+                    Console.WriteLine(i + ": " + goal.SpDisplayFormat());
+                    i += 1;
+                }
+                Thread.Sleep(2000);
+    }
+
+    static public void SpUpdateGoal(GoalSheet spGoalsheet, List<Goal> spGoalList){
+
+        bool spGotChoice = false;
+
+        do{
+            Console.WriteLine("which goal did you complete?");
+            Console.Write("> ");
+            if (int.TryParse(Console.ReadLine(), out int spGoalChoice)){
+                if (spGoalChoice >= 1 && spGoalChoice <= spGoalList.Count){
+    
+                    Goal spChosenGoal = spGoalList[spGoalChoice -1];
+                    // string spChosenGoalString = spGoalList[spGoalChoice].ToString();
+                    // string[] spGoalSplit = spChosenGoalString.Split(":");
+                    // string[] spGoalDetails = spGoalSplit[1].Split(",");
+                    // string spGoalType = spGoalSplit[0];
+
+                    spChosenGoal.SpRecordEvent();
+                    spGoalsheet.SpGetScore();
+                    
+                    spGotChoice = true;
+                } else{
+                    Console.WriteLine("This number is not in the range of the list. Try again.");
+                }
+            }else{
+                    Console.WriteLine("Your response must be a number in the list of goals. Please try again. ");
+            }
+
+        }while(spGotChoice == false);
+    }
+
+
         
         static void Main(string[] args) {
             StartingMessage();
 
             GoalSheet spGoalsheet = new GoalSheet();
+            List<string> spFilesLoaded = new List<string>();
             bool spFinished = false;
             do{
 
@@ -318,51 +354,89 @@ class Program {
             if (SpChoice == 1)
             {
              //Create a New Goal 
-                //Goal spGoalInstance = CreateGoal();
+                
                 Goal spNewGoal = CreateGoal();
                 spGoalsheet.AddToList(spNewGoal);
-                
-
 
                 
             } else if (SpChoice == 2)
             {
                 //List existing goals
                 List<Goal> spGoalList = spGoalsheet.GetGoalList();
-                foreach (Goal goal in spGoalList){
-                    Console.WriteLine(goal.SpDisplayFormat());
-                }
+                SpDisplayAllGoals(spGoalList);
+
+
+                Console.WriteLine();
+                int spTotalScore = spGoalsheet.SpGetScore();
+                Console.WriteLine($"Your current score is: {spTotalScore} points!");
 
 
 
             } else if (SpChoice == 3)
             {
-                Console.Write("Which file would you like to save your goals to?");
+                Console.Write("Which file would you like to save your goals to? ");
                 string spFilename = Console.ReadLine();
-                //Save goals logic
                 List<Goal> SpNewGoalList = spGoalsheet.GetGoalList();
-                SaveGoals(SpNewGoalList, spFilename);
+                //check to see if data from that file has been loaded
+                if (spFilesLoaded.Contains(spFilename)){
+                    //Save goals logic
+                    SaveGoals(SpNewGoalList, spFilename);
+                    
+                }else{
+                    Console.WriteLine("The goals in this file have not been loaded yet. If you save to this file, all previous data will be lost. ");
+                    Thread.Sleep(500);
+                    Console.WriteLine("WOULD YOU STILL LIKE TO SAVE?(n/y) ");
+                    Console.Write(">");
+                    string spUserResponse = Console.ReadLine();
+                    string spResponse = spUserResponse.ToLower();
+                    if (spResponse == "y" || spResponse == "yes"){
+                        SaveGoals(SpNewGoalList, spFilename);
+                    }
+                }
+
             } else if (SpChoice == 4)
             {
                 //Load Goals logic
                 Console.Write("Which file would you like to load your goals from? ");
                 string spFilename = Console.ReadLine();
-                LoadGoals(spFilename, spGoalsheet);
-                Thread.Sleep(1000);
+                if (spFilesLoaded.Contains(spFilename)){
+                    Console.WriteLine("This file has already been loaded. ");
+
+                }else{
+                    LoadGoals(spFilename, spGoalsheet);
+                    spFilesLoaded.Add(spFilename);
+                    Console.WriteLine(spFilesLoaded.Count() + " files have been loaded. ");
+            
+                }
+                Console.WriteLine();
+                int spTotalScore = spGoalsheet.SpFindScore();
+                Console.WriteLine($"Your current score is: {spTotalScore} points!");
+                
             } else if (SpChoice == 5)
             {
-                Console.Write("which goal did you complete?");
+                List<Goal> spGoalList = spGoalsheet.GetGoalList();
+                Console.WriteLine("Here is a list of your goals: ");
+                SpDisplayAllGoals(spGoalList);
+                Console.WriteLine();
+                SpUpdateGoal(spGoalsheet, spGoalList);
+                
+                
+                
+
                 //record new event logic
             } else if (SpChoice == 6)
             {
-                Console.WriteLine("End Program.");
+                int spTotalScore = spGoalsheet.SpGetScore();
+                Console.WriteLine("End Program. ");
+                Console.WriteLine($"Your current score is: {spTotalScore} points!");
                 spFinished = true;
-                Environment.Exit(1);
+                
             } else 
             {
                 Console.WriteLine("Invalid Input, try again..");
                 GetUserChoice();
             }
+            Thread.Sleep(2000);
             }while(spFinished == false);
 
             EndingMessage();

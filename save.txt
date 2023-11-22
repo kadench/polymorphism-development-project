@@ -1,0 +1,16 @@
+checklist:   run a marathon, 7, 210, 2, 0, False
+simple:     make a cake, 3, 150, False
+checklist:     run a mile, 5, 150, 5, 0, False
+eternal:     do 20 pushups every day, 3, 30, 0
+simple:     Make donuts, 5, 250, False
+checklist:     go to lego land, 8, 240, 5, 0, False
+simple:     buy donuts, 2, 100, False
+checklist:     mow the lawn, 3, 90, 5, 1, False
+eternal:     read scriptures, 4, 40, 0
+eternal:     go to sleep on time, 5, 50, 0
+simple:     fix the stool, 2, 100, False
+checklist:     write what I am thankful for, 1, 30, 10, 0, False
+simple:     play a tennis match, 4, 200, True
+simple:     make sugar free jello, 4, 200, False
+simple:    make sugar free cranberry sauce, 2, 100, True
+simple:  make a hat, 3, 150, True

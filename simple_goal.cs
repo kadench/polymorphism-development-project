@@ -9,8 +9,12 @@ class Simple : Goal {
 
     public override void SpRecordEvent(){
         _spIsComplete = true;
-        base._spPointsEarned += base._spScore;
+        Console.WriteLine($"Congratulations! You earned {_spPointsEarned} points! ");
+        
+        
     }
+
+   
 
     public override string ToString(){
          return ($"{base._spGoalType}: {base._spDescription}, {base._spDifficultyLevel}, {base._spPointsEarned}, {_spIsComplete}");
@@ -23,7 +27,7 @@ class Simple : Goal {
         }else{
             spDisplayComplete = "is";
         }
-        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and {spDisplayComplete} completed. ");
+        return ($"Your goal to \"{base._spDescription}\" has a difficulty of {base._spDifficultyLevel} and {spDisplayComplete} completed. ");
     }
 
 

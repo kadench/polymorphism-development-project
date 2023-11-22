@@ -1,2 +1,13 @@
 simple: make a cake, 3, 0, false
 checklist: run a mile, 5, 0, 5, 0, false
+eternal: do 20 pushups every day, 3, 0, 0
+simple: Make donuts, 5, 0, False
+checklist: go to lego land, 8, 0, 5, 0, False
+simple: buy donuts, 2, 0, False
+checklist: mow the lawn, 3, 0, 5, 0, False
+eternal: read scriptures, 4, 0, 0
+eternal: go to sleep on time, 5, 0, 0
+simple: fix the stool, 2, 0, False
+checklist: write what I am thankful for, 1, 0, 10, 0, False
+simple: play a tennis match, 4, 0, False
+simple: make sugar free jello, 4, 0, False

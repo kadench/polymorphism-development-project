@@ -14,6 +14,7 @@ class Checklist : Goal {
 
     private void SpCountTimesDone(){
         _spTimesDone = _spTimesDone +1;
+        SpSetIsComplete();
 
     }
 
@@ -21,9 +22,13 @@ class Checklist : Goal {
         if (_spTimesDone == _spTimesToDo){
             _spIsComplete = true;
             SpDetermineBonusPoints();
-            base._spPointsEarned = _spPointsEarned + _spBonusPointValue;
+            //base._spPointsEarned = _spPointsEarned + _spBonusPointValue;
         }
 
+    }
+
+    public bool SpGetIsComplete(){
+        return _spIsComplete;
     }
 
     private void SpDetermineBonusPoints(){
@@ -33,8 +38,19 @@ class Checklist : Goal {
 
     public override void SpRecordEvent(){
         SpCountTimesDone();
-        base._spPointsEarned += base._spScore;
+        Console.WriteLine($"Congratulations! You earned {_spPointsEarned} points! ");
+        if (_spIsComplete){
+            Console.WriteLine($"Congratulations on finishing your Checklist goal! You earned {_spBonusPointValue} extra points!");
+        }
 
+    }
+
+    public override int SpUpdateTotalScore(int totalScore){
+        totalScore = totalScore + _spPointsEarned;
+        if (_spIsComplete){
+            totalScore = totalScore +_spBonusPointValue;
+        }
+        return totalScore;
     }
 
     public override string ToString()
@@ -46,7 +62,7 @@ class Checklist : Goal {
     public override string SpDisplayFormat(){
         string spDisplayCompletion = ($"{_spTimesDone}/{_spTimesToDo}");
         
-        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and is {spDisplayCompletion} completed. ");
+        return ($"Your goal to \"{base._spDescription}\" has a difficulty of {base._spDifficultyLevel} and is {spDisplayCompletion} completed. ");
     }
 
 

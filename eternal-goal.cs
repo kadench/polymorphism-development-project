@@ -12,6 +12,7 @@ class Eternal : Goal{
     }
     public override void SpRecordEvent(){
         SpCountTimesDone();
+        Console.WriteLine($"Congratulations! You earned {_spPointsEarned} points! ");
     }
 
     public override string ToString(){
@@ -21,7 +22,7 @@ class Eternal : Goal{
     public override string SpDisplayFormat(){
         
         
-        return ($"Your goal to {base._spDescription} has a difficulty of {base._spDifficultyLevel} and has been completed {_spTimesDone} times. ");
+        return ($"Your goal to \"{base._spDescription}\" has a difficulty of {base._spDifficultyLevel} and has been completed {_spTimesDone} times. ");
     }
 
 

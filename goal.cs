@@ -27,6 +27,8 @@ public abstract class Goal {
 
     // Keeps the score to add to the txt document.
     protected int _spScore;
+
+    
     
 
     // Setting the attributes for the new instance.
@@ -58,7 +60,8 @@ public abstract class Goal {
             _spDescription = spDescription;
             SpSetDifficultyLvl(spDifficultyLevel);
             SpSetGoalPointValue();
-            SpSetScore();
+            SpSetPointsEarned();
+            //SpSetScore();
         }
         // If it isn't write a response to the terminal (temporary)
         else {
@@ -94,10 +97,15 @@ public abstract class Goal {
     }
 
     // Sets the amount of points received when a goal is done. (Will be changed by checklist, so it's a virtual method.)
-    protected virtual void SpSetGivenPoints() {
+    protected virtual void SpSetPointsEarned() {
         _spPointsEarned = _spDifficultyLevel * _spGoalValue; 
     }
-    // Not sure what this one does??
+
+    public int SpGetPointsEarned() {
+        return _spPointsEarned;
+    }
+
+    
     public abstract void SpRecordEvent();
     
 
@@ -105,13 +113,23 @@ public abstract class Goal {
         return ("");
     }
     
-    protected virtual void SpSetScore() {
-        _spScore = _spGoalValue * _spDifficultyLevel; 
+    // protected virtual void SpSetScore() {
+    //     _spScore = _spGoalValue * _spDifficultyLevel; 
+    // }
+
+    // protected int SpGetScore() {
+    //     return _spScore;
+    // }
+
+    public string SpGetGoalType(){
+        return _spGoalType;
     }
 
-    protected int SpGetScore() {
-        return _spScore;
+    public virtual int SpUpdateTotalScore(int totalScore){
+        totalScore = totalScore + _spPointsEarned;
+        return totalScore;
     }
+
 }
 
 // Simple: 50
